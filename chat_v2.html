@@ -1,0 +1,17 @@
+{% extends 'base_v2.html' %}
+{% block body %}
+<h2>Assistant Chat</h2>
+<form method="post" class="chat-form">
+  <textarea name="message" rows="3" placeholder="Type a question..." required></textarea>
+  <button type="submit">Send</button>
+</form>
+
+<section class="msgs">
+  {% for m in messages %}
+    <div class="msg {{ m.role }}">
+      <div class="meta">{{ m.role }} • {{ m.created_at.strftime('%Y-%m-%d %H:%M') }}</div>
+      <div class="text">{{ m.content }}</div>
+    </div>
+  {% endfor %}
+</section>
+{% endblock %}

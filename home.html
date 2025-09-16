@@ -1,0 +1,11 @@
+{% extends 'base_v2.html' %}
+{% block body %}
+<section class="hero">
+  <h1>Engage with your local services</h1>
+  <p>Ask the assistant for guidance, report an issue, or review recent community reports.</p>
+  <div class="actions">
+    <a class="action" href="{{ url_for('main.chat') }}">Start Chat</a>
+    <a class="action ghost" href="{{ url_for('main.report') }}">Submit a Report</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base_v2.html' %}
+{% block body %}
+<h2>Submit Civic Concern</h2>
+<form method="post" class="report-form">
+  <label>Title</label>
+  <input name="title" required maxlength="200"/>
+  <label>Description</label>
+  <textarea name="description" rows="6" required></textarea>
+  <button type="submit">Submit Report</button>
+</form>
+{% endblock %}

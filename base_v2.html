@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ title or 'Citizen AI' }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style_v2.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="logo" href="{{ url_for('main.home') }}">Citizen‑AI</a>
+      <nav>
+        <a href="{{ url_for('main.chat') }}">Chat</a>
+        <a href="{{ url_for('main.report') }}">Report</a>
+        <a href="{{ url_for('main.dashboard') }}">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap content">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="alerts">
+          {% for category,msg in messages %}
+            <li class="alert {{ category }}">{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    {% block body %}{% endblock %}
+  </main>
+  <footer class="wrap footer">
+    <small>Citizen participation platform — built for demonstration.</small>
+  </footer>
+</body>
+</html>

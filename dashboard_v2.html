@@ -1,0 +1,21 @@
+{% extends 'base_v2.html' %}
+{% block body %}
+<h2>Dashboard</h2>
+<div class="summary">
+  <div class="tile">Positive: {{ stats.positive }}</div>
+  <div class="tile">Neutral: {{ stats.neutral }}</div>
+  <div class="tile">Negative: {{ stats.negative }}</div>
+</div>
+
+<h3>Latest Reports</h3>
+<ul class="reports">
+  {% for r in concerns %}
+    <li>
+      <strong>#{{ r.id }} {{ r.title }}</strong> — <small>{{ r.sentiment }}</small>
+      <p>{{ r.description }}</p>
+    </li>
+  {% else %}
+    <li>No reports yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
